@@ -1,10 +1,20 @@
 steps:
 # Deploy the workflow
-- id: 'deploy-workflow'
-  name: 'gcr.io/cloud-builders/gcloud'
-  args: ['workflows', 'deploy', '$BRANCH_NAME', '--source', 'workflow.yaml']
+# - id: 'deploy-workflow'
+#   name: 'gcr.io/cloud-builders/gcloud'
+#   args: ['workflows', 'deploy', '$BRANCH_NAME', '--source', 'workflow.yaml']
 
 # steps:
 # - name: 'ubuntu'
 #   entrypoint: '/bin/bash'
 #   args: ['-c', 'echo Workflow Name: $_WORKFLOW_NAME-$BRANCH_NAME']
+
+  # Make sure the deploy-workflow.sh script is executable
+  - name: 'ubuntu'
+    entrypoint: 'chmod'
+    args: ['+x', './deploy-workflow.sh']
+
+  # Execute the deploy-workflow.sh script
+  - name: 'ubuntu'
+    entrypoint: '/bin/bash'
+    args: ['./deploy-workflow.sh']
