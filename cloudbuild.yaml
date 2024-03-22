@@ -13,8 +13,12 @@ steps:
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'chmod'
     args: ['+x', './deploy-workflow.sh']
+    options:
+      logging: CLOUD_LOGGING_ONLY
 
   # Execute the deploy-workflow.sh script
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: '/bin/bash'
     args: ['./deploy-workflow.sh']
+    options:
+      logging: CLOUD_LOGGING_ONLY
