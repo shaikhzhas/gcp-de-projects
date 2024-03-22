@@ -1,0 +1,5 @@
+steps:
+# Deploy the workflow
+- id: 'deploy-workflow'
+  name: 'gcr.io/cloud-builders/gcloud'
+  args: ['workflows', 'deploy', '$_WORKFLOW_NAME-$BRANCH_NAME', '--source', 'workflow/workflow.yaml']
