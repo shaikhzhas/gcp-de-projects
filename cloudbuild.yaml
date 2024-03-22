@@ -10,11 +10,11 @@ steps:
 #   args: ['-c', 'echo Workflow Name: $_WORKFLOW_NAME-$BRANCH_NAME']
 
   # Make sure the deploy-workflow.sh script is executable
-  - name: 'ubuntu'
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'chmod'
     args: ['+x', './deploy-workflow.sh']
 
   # Execute the deploy-workflow.sh script
-  - name: 'ubuntu'
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: '/bin/bash'
     args: ['./deploy-workflow.sh']
