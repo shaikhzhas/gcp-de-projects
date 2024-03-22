@@ -5,7 +5,7 @@ SERVICE_ACCOUNT=projects/$PROJECT_ID/serviceAccounts/terraform@$PROJECT_ID.iam.g
 ENVIRONMENT="dev"
 REPO=https://www.github.com/shaikhzhas/gcp-de-projects
 REPO_TYPE=GITHUB
-REGION="global"
+REGION="us-central1"
 
 echo $SERVICE_ACCOUNT
 

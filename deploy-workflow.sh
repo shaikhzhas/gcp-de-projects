@@ -2,7 +2,7 @@
 
 PROJECT_ID="sustainable-data-platform"
 ENVIRONMENT="dev"
-REGION="global"
+REGION="us-central1"
 WORKFLOW_NAME="myFirstWorkflow_${ENVIRONMENT}"
 
 
