@@ -50,7 +50,18 @@ def transform_core_layer():
     # Define the SQL query, merging the data from the two tables
     query = """
     MERGE INTO `sustainable-data-platform.sdp.sample_sustainability_data_with_schema_core` AS TARGET
-    USING `sustainable-data-platform.sdp.sample_sustainability_data_with_schema` AS SOURCE
+    USING (
+    SELECT
+        Year,
+        Country,
+        AVG(CO2_Emissions) AS CO2_Emissions,
+        AVG(Renewable_Energy_Consumption) AS Renewable_Energy_Consumption,
+        AVG(Population_Millions) AS Population_Millions
+    FROM
+        `sustainable-data-platform.sdp.sample_sustainability_data_with_schema`
+    GROUP BY
+        Year, Country
+    ) AS SOURCE
     ON 
     TARGET.Year = SOURCE.Year AND
     TARGET.Country = SOURCE.Country
@@ -73,7 +84,18 @@ def transform_datamart_layer():
     client = bigquery.Client(PROJECT_ID)
     query = """
     MERGE INTO `sustainable-data-platform.sdp.sample_sustainability_data_with_schema_datamart` AS TARGET
-    USING `sustainable-data-platform.sdp.sample_sustainability_data_with_core` AS SOURCE
+    USING (
+    SELECT
+        Year,
+        Country,
+        AVG(CO2_Emissions) AS CO2_Emissions,
+        AVG(Renewable_Energy_Consumption) AS Renewable_Energy_Consumption,
+        AVG(Population_Millions) AS Population_Millions
+    FROM
+        `sustainable-data-platform.sdp.sample_sustainability_data_with_schema_core`
+    GROUP BY
+        Year, Country
+    ) AS SOURCE
     ON 
     TARGET.Year = SOURCE.Year AND
     TARGET.Country = SOURCE.Country
