@@ -3,7 +3,8 @@ main:
   steps:
     - init:
         assign:
-          - url: "https://us-central1-sustainable-data-platform.cloudfunctions.net/sdp-dev-ingestion"
+          - url1: "https://us-central1-sustainable-data-platform.cloudfunctions.net/sdp-dev-ingestion"
+          - url2: "https://us-central1-sustainable-data-platform.cloudfunctions.net/sdp-dev-transform"
           - headers:
               Content-Type: "application/json"
           - body:
@@ -11,7 +12,16 @@ main:
     - call_function:
         call: http.post
         args:
-          url: ${url}
+          url: ${url1}
+          headers: ${headers}
+          body: ${body}
+        result: callResult
+    - return_result:
+        return: ${callResult.body}
+    - call_function:
+        call: http.post
+        args:
+          url: ${url2}
           headers: ${headers}
           body: ${body}
         result: callResult
