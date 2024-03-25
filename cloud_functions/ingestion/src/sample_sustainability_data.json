@@ -1,0 +1,33 @@
+[
+    {
+      "name": "Year",
+      "type": "INTEGER",
+      "mode": "REQUIRED",
+      "description": "The year when the data was recorded"
+    },
+    {
+      "name": "Country",
+      "type": "STRING",
+      "mode": "REQUIRED",
+      "description": "The country for which the data is reported"
+    },
+    {
+      "name": "CO2_Emissions",
+      "type": "FLOAT",
+      "mode": "NULLABLE",
+      "description": "CO2 emissions in metric tons"
+    },
+    {
+      "name": "Renewable_Energy_Consumption",
+      "type": "FLOAT",
+      "mode": "NULLABLE",
+      "description": "Percentage of renewable energy consumption"
+    },
+    {
+      "name": "Population_Millions",
+      "type": "FLOAT",
+      "mode": "NULLABLE",
+      "description": "Population in millions"
+    }
+  ]
+  

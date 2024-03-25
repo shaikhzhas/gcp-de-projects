@@ -1,0 +1,13 @@
+[
+    {
+      "name": "id",
+      "type": "INTEGER",
+      "mode": "REQUIRED"
+    },
+    {
+      "name": "value",
+      "type": "INTEGER",
+      "mode": "NULLABLE"
+    }
+  ]
+  

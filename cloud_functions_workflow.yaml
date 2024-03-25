@@ -1,0 +1,21 @@
+main:
+  params: []
+  steps:
+    - init:
+        assign:
+          - url: "https://us-central1-sustainable-data-platform.cloudfunctions.net/sdp-dev-ingestion"
+          - headers:
+              Content-Type: "application/json"
+          - body:
+              message: "Hello from Cloud Workflow!"
+    - call_function:
+        call: http.post
+          args:
+            url: ${url}
+            headers: ${headers}
+            body: ${body}
+          result: callResult
+    - return_result:
+        return: ${callResult.body}
+    - the_end:
+        return: "SUCCESS"
