@@ -10,11 +10,11 @@ main:
               message: "Hello from Cloud Workflow!"
     - call_function:
         call: http.post
-          args:
-            url: ${url}
-            headers: ${headers}
-            body: ${body}
-          result: callResult
+        args:
+          url: ${url}
+          headers: ${headers}
+          body: ${body}
+        result: callResult
     - return_result:
         return: ${callResult.body}
     - the_end:
