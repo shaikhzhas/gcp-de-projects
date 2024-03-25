@@ -9,23 +9,23 @@ main:
               Content-Type: "application/json"
           - body:
               message: "Hello from Cloud Workflow!"
-    - call_function:
+    - call_function1:
         call: http.post
         args:
           url: ${url1}
           headers: ${headers}
           body: ${body}
         result: callResult
-    - return_result:
+    - return_result1:
         return: ${callResult.body}
-    - call_function:
+    - call_function2:
         call: http.post
         args:
           url: ${url2}
           headers: ${headers}
           body: ${body}
         result: callResult
-    - return_result:
+    - return_result2:
         return: ${callResult.body}
     - the_end:
         return: "SUCCESS"
