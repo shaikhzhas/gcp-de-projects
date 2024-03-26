@@ -1,5 +1,5 @@
 
-AIRFLOW_INSTANCE_NAME="sdp-dev"
+AIRFLOW_INSTANCE_NAME="sdp-dev-v2"
 PROJECT_ID="sustainable-data-platform"
 PROJECT_NUMBER="324237649233"
 LOCATION="us-central1"

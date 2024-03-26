@@ -32,11 +32,6 @@ steps:
   #   entrypoint: '/bin/bash'
   #   args: ['./deploy-bq-sp-workflow.sh']
 
-  # Make sure the deploy-workflow.sh script is executable
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: 'chmod'
-    args: ['+x', './deploy-cloud-functions-workflow.sh']
-
   # Execute the deploy-workflow.sh script
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: '/bin/bash'
